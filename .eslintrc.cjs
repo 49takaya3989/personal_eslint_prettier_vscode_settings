@@ -1,6 +1,10 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true },
+  env: { // 指定した環境のグローバル変数を使用できるようにする。
+    browser: true,
+    es2020: true,
+    node: true,
+  },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
