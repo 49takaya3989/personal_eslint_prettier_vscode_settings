@@ -16,10 +16,10 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     }, // 使用する追加の言語機能を示すオブジェクト。
-    project: ['tsconfig.json'], // TypeScript の型情報にアクセスする設定。
+    project: ['tsconfig.json'], // TypeScript の型情報にアクセスする。
   },
-  ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列
-  parser: '@typescript-eslint/parser',
+  ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列。
+  parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
   plugins: ['react-refresh', "@typescript-eslint"], // 使用するプラグイン。
   rules: {
     'react-refresh/only-export-components': [
