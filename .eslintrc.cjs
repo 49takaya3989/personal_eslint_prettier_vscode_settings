@@ -44,12 +44,11 @@ module.exports = {
         "allowString": false, // 文字列を許容しない
         "allowNumber": false, // 数値を許容しない
         "allowNullableObject": false, // null許容オブジェクトを許容しない
-        "allowNullableBoolean": true, // nullまたはundefinedが許容されるbooleanを許容する
+        "allowNullableBoolean": false, // nullまたはundefinedが許容されるbooleanを許容する
         "allowNullableString": false, // nullまたはundefinedが許容される文字列を許容しない
         "allowNullableNumber": false, // nullまたはundefinedが許容される数値を許容しない
         "allowAny": false, // any型を許容しない
-        "allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing": false,
-      }
+      } // boolean 型以外の型を条件式に使用することを禁止する。
     ],
   },
 }
