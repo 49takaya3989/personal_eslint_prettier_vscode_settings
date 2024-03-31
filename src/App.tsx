@@ -3,8 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+type Hoge = {
+  hoge?: {
+    fe: string
+  }
+}
+
 function App() {
   const [count, setCount] = useState(0)
+  const [hoge, setHoge] = useState<Hoge>({})
+  const test = hoge.hoge?.fe
+  const ss: string = ""
+
+  if (test) console.log('hoge');
+  if (ss) console.log('hoge');
 
   return (
     <>
@@ -18,7 +30,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => {setCount((count) => count + 1)}}>
           count is {count}
         </button>
         <p>

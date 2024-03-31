@@ -11,9 +11,16 @@ module.exports = {
     'plugin:react-hooks/recommended',
     "prettier",
   ],
-  ignorePatterns: ['dist', '.eslintrc.cjs'],
+  parserOptions: {
+    sourceType: 'module', // モジュールとしてコードを解析
+    ecmaFeatures: {
+      jsx: true,
+    }, // 使用する追加の言語機能を示すオブジェクト。
+    project: ['tsconfig.json'], // TypeScript の型情報にアクセスする設定。
+  },
+  ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', "@typescript-eslint"], // 使用するプラグイン。
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -30,6 +37,19 @@ module.exports = {
           "match": false
         }
       } // type や interface の変数名を PascalCase に強制する。
+    ],
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error", // または "warn" に設定して警告とする
+      {
+        "allowString": false, // 文字列を許容しない
+        "allowNumber": false, // 数値を許容しない
+        "allowNullableObject": false, // null許容オブジェクトを許容しない
+        "allowNullableBoolean": true, // nullまたはundefinedが許容されるbooleanを許容する
+        "allowNullableString": false, // nullまたはundefinedが許容される文字列を許容しない
+        "allowNullableNumber": false, // nullまたはundefinedが許容される数値を許容しない
+        "allowAny": false, // any型を許容しない
+        "allowRuleToRunWithoutStrictNullChecksIKnowWhatIAmDoing": false,
+      }
     ],
   },
 }
