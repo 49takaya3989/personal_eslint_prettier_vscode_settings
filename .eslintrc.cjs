@@ -71,5 +71,12 @@ module.exports = {
         "skipCompoundAssignments": false,
       } // 異なる型の加算を禁止する。
     ],
+    "@typescript-eslint/switch-exhaustiveness-check": [
+      "error",
+      {
+        allowDefaultCaseForExhaustiveSwitch: true, // 全てのケースが網羅されている switch 文で default ケースを許容する。
+        requireDefaultForNonUnion: true, // ユニオン型でない値の switch 文で default ケースを強制する。
+      },
+    ],
   },
 }
