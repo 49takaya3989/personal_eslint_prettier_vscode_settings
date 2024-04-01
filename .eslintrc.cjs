@@ -22,6 +22,7 @@ module.exports = {
   parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
   plugins: [
     'react',
+    'unicorn',
     'react-refresh',
     "@typescript-eslint"
   ], // 使用するプラグイン。
@@ -78,5 +79,12 @@ module.exports = {
         requireDefaultForNonUnion: true, // ユニオン型でない値の switch 文で default ケースを強制する。
       },
     ],
+    "unicorn/prefer-switch": [
+      "error",
+      {
+        "minimumCases": 2, // if {} else {} の形のみ許容する。
+        "emptyDefaultCase": "no-default-case", // 整形時に default を出力しない。
+      }
+    ], // if-else より switch を優先する設定。
   },
 }
