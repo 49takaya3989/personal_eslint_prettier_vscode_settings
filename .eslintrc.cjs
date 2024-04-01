@@ -20,7 +20,11 @@ module.exports = {
   },
   ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列。
   parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
-  plugins: ['react-refresh', "@typescript-eslint"], // 使用するプラグイン。
+  plugins: [
+    'react',
+    'react-refresh',
+    "@typescript-eslint"
+  ], // 使用するプラグイン。
   rules: {
     'react-refresh/only-export-components': [
       'warn',
@@ -39,7 +43,7 @@ module.exports = {
       } // type や interface の変数名を PascalCase に強制する。
     ],
     "@typescript-eslint/strict-boolean-expressions": [
-      "error", // または "warn" に設定して警告とする
+      "error",
       {
         "allowString": false, // 文字列を許容しない
         "allowNumber": false, // 数値を許容しない
@@ -49,6 +53,10 @@ module.exports = {
         "allowNullableNumber": false, // nullまたはundefinedが許容される数値を許容しない
         "allowAny": false, // any型を許容しない
       } // boolean 型以外の型を条件式に使用することを禁止する。
+    ],
+    "react/jsx-no-leaked-render": [
+      "error",
+      { "validStrategies": ["ternary"] } // JSX での条件式を三項式に強制する。
     ],
   },
 }
