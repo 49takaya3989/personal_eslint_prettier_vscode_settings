@@ -58,5 +58,7 @@ module.exports = {
       "error",
       { "validStrategies": ["ternary"] } // JSX での条件式を三項式に強制する。
     ],
+    "no-implicit-coercion": "error", // 型変換の短い表記法を禁止する。
+    "prefer-template": "error", // 文字列の結合で"+"の使用を禁止する。
   },
 }
