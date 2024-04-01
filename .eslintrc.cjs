@@ -75,15 +75,15 @@ module.exports = {
     "@typescript-eslint/switch-exhaustiveness-check": [
       "error",
       {
-        allowDefaultCaseForExhaustiveSwitch: true, // 全てのケースが網羅されている switch 文で default ケースを許容する。
-        requireDefaultForNonUnion: true, // ユニオン型でない値の switch 文で default ケースを強制する。
+        "allowDefaultCaseForExhaustiveSwitch": true, // 全てのケースが網羅されている switch 文で default ケースを許容する。
+        "requireDefaultForNonUnion": true, // ユニオン型でない値の switch 文で default ケースを強制する。
       },
     ],
     "unicorn/prefer-switch": [
       "error",
       {
         "minimumCases": 2, // if {} else {} の形のみ許容する。
-        "emptyDefaultCase": "no-default-case", // 整形時に default を出力しない。
+        "emptyDefaultCase": "do-nothing-comment", // else がない if 文から整形する際に default を出力する
       }
     ], // if-else より switch を優先する設定。
   },
