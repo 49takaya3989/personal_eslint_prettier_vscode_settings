@@ -60,5 +60,16 @@ module.exports = {
     ],
     "no-implicit-coercion": "error", // 型変換の短い表記法を禁止する。
     "prefer-template": "error", // 文字列の結合で"+"の使用を禁止する。
+    "@typescript-eslint/restrict-plus-operands": [
+      "error",
+      {
+        "allowAny": false,
+        "allowBoolean": false,
+        "allowNullish": false,
+        "allowNumberAndString": false,
+        "allowRegExp": false,
+        "skipCompoundAssignments": false,
+      } // 異なる型の加算を禁止する。
+    ],
   },
 }
