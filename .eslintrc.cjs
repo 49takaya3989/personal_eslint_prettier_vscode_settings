@@ -8,7 +8,6 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
     "prettier",
   ],
   parserOptions: {
@@ -26,6 +25,7 @@ module.exports = {
     'react',
     'unicorn',
     'react-refresh',
+    "react-hooks",
     "@typescript-eslint",
   ], // 使用するプラグイン。
   rules: {
@@ -138,11 +138,13 @@ module.exports = {
         "fixMixedExportsWithInlineTypeSpecifier": true, // type の export で inline を許容する。
       }
     ], // type の export で "type" の記載を強制する。
-    // "@typescript-eslint/require-array-sort-compare": [
-    //   "error",
-    //   {
-    //     "ignoreStringArrays": true, // 文字列のみ引数なしを許容する。
-    //   }
-    // ], // .sort() で引数を強制する。
+    "@typescript-eslint/require-array-sort-compare": [
+      "error",
+      {
+        "ignoreStringArrays": true, // 文字列のみ引数なしを許容する。
+      }
+    ], // .sort() で引数を強制する。
+    "react-hooks/rules-of-hooks": "error", // Hooks の正しいルールを強制する。
+    "react-hooks/exhaustive-deps": "error", // deps を強制する。
   },
 }
