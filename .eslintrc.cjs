@@ -21,6 +21,7 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列。
   parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
   plugins: [
+    'functional',
     'react',
     'unicorn',
     'react-refresh',
@@ -101,5 +102,22 @@ module.exports = {
         "message": "Use Number.isFinite instead to avoid type coercion."
       },
     ], // グローバル変数の使用を制限する。
+    "functional/no-let": [
+      "error",
+      {
+        "allowInForLoopInit": true, // for 文の引数で let の使用を許容する。
+      }
+    ], // let の使用を禁止する。
+    'functional/immutable-data': [
+      'error',
+      {
+        ignoreClasses: true, // Classes 内の変更は許容する。
+        ignoreImmediateMutation: false, // オブジェクトを変数に代入する前の変更は許容する。
+        ignoreAccessorPattern: [
+          '**.current.**', // ref の変更は許容する。
+          '**.scrollTop', // scrollTop の変更は許容する。
+        ],
+      },
+    ], // 既存の配列とオブジェクトの変更を禁止する。
   },
 }
