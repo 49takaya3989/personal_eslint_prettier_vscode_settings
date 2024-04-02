@@ -86,5 +86,20 @@ module.exports = {
         "emptyDefaultCase": "do-nothing-comment", // else がない if 文から整形する際に default を出力する
       }
     ], // if-else より switch を優先する設定。
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "event",
+        "message": "Use local parameter instead. Global 'event' object can lead to unintended behavior."
+      },
+      {
+        "name": "isNaN",
+        "message": "Use Number.isNaN instead to avoid type coercion."
+      },
+      {
+        "name": "isFinite",
+        "message": "Use Number.isFinite instead to avoid type coercion."
+      },
+    ], // グローバル変数の使用を制限する。
   },
 }
