@@ -119,6 +119,7 @@ module.exports = {
         ],
       },
     ], // 既存の配列とオブジェクトの変更を禁止する。
-    "@typescript-eslint/method-signature-style": "error" // メソッドシグネチャを禁止する。
+    "@typescript-eslint/method-signature-style": "error", // メソッドシグネチャを禁止する。
+    "import/no-cycle": "error", // 循環 import を禁止する。
   },
 }
