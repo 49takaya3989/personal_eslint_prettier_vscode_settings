@@ -113,7 +113,7 @@ module.exports = {
       'error',
       {
         "ignoreClasses": true, // Classes 内の変更は許容する。
-        "ignoreImmediateMutation": false, // オブジェクトを変数に代入する前の変更は許容する。
+        "ignoreImmediateMutation": true, // オブジェクトを変数に代入する前の変更は許容する。
         "ignoreAccessorPattern": [
           '**.current.**', // ref の変更は許容する。
           '**.scrollTop', // scrollTop の変更は許容する。
@@ -138,5 +138,11 @@ module.exports = {
         "fixMixedExportsWithInlineTypeSpecifier": true, // type の export で inline を許容する。
       }
     ], // type の export で "type" の記載を強制する。
+    // "@typescript-eslint/require-array-sort-compare": [
+    //   "error",
+    //   {
+    //     "ignoreStringArrays": true, // 文字列のみ引数なしを許容する。
+    //   }
+    // ], // .sort() で引数を強制する。
   },
 }
