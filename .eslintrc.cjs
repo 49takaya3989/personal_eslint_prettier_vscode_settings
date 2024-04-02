@@ -21,11 +21,12 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列。
   parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
   plugins: [
+    "import",
     'functional',
     'react',
     'unicorn',
     'react-refresh',
-    "@typescript-eslint"
+    "@typescript-eslint",
   ], // 使用するプラグイン。
   rules: {
     'react-refresh/only-export-components': [
@@ -121,5 +122,21 @@ module.exports = {
     ], // 既存の配列とオブジェクトの変更を禁止する。
     "@typescript-eslint/method-signature-style": "error", // メソッドシグネチャを禁止する。
     "import/no-cycle": "error", // 循環 import を禁止する。
+    "import/newline-after-import": "error", // import ブロックの後に1行改行を強制する。
+    "import/no-useless-path-segments": "error", // import で不要なパスを禁止する。
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": 'type-imports', // type の import では {type 〇〇} を強制する。
+        "disallowTypeAnnotations": false, // 型注釈での import を禁止する。
+        "fixStyle": 'inline-type-imports', // type を inline にする。
+      }
+    ], // import する型に type をつけることを強制する。
+    "@typescript-eslint/consistent-type-exports": [
+      "error",
+      {
+        fixMixedExportsWithInlineTypeSpecifier: true, // type の export で inline を許容する。
+      }
+    ], // type の export で "type" の記載を強制する。
   },
 }
