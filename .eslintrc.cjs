@@ -112,9 +112,9 @@ module.exports = {
     'functional/immutable-data': [
       'error',
       {
-        ignoreClasses: true, // Classes 内の変更は許容する。
-        ignoreImmediateMutation: false, // オブジェクトを変数に代入する前の変更は許容する。
-        ignoreAccessorPattern: [
+        "ignoreClasses": true, // Classes 内の変更は許容する。
+        "ignoreImmediateMutation": false, // オブジェクトを変数に代入する前の変更は許容する。
+        "ignoreAccessorPattern": [
           '**.current.**', // ref の変更は許容する。
           '**.scrollTop', // scrollTop の変更は許容する。
         ],
@@ -135,7 +135,7 @@ module.exports = {
     "@typescript-eslint/consistent-type-exports": [
       "error",
       {
-        fixMixedExportsWithInlineTypeSpecifier: true, // type の export で inline を許容する。
+        "fixMixedExportsWithInlineTypeSpecifier": true, // type の export で inline を許容する。
       }
     ], // type の export で "type" の記載を強制する。
   },
