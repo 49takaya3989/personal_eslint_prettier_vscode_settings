@@ -22,6 +22,7 @@ module.exports = {
   plugins: [
     "import",
     'functional',
+    "prefer-arrow-functions",
     'react',
     'unicorn',
     'react-refresh',
@@ -146,5 +147,8 @@ module.exports = {
     ], // .sort() で引数を強制する。
     "react-hooks/rules-of-hooks": "error", // Hooks の正しいルールを強制する。
     "react-hooks/exhaustive-deps": "error", // deps を強制する。
+    "func-style": "error", // アロー関数に強制する。
+    "prefer-arrow-functions/prefer-arrow-functions": "error", // アロー関数へ自動修正する。
+    "arrow-body-style": "error", // 中括弧を省略できる場合は許容する。
   },
 }
