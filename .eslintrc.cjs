@@ -8,6 +8,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    "plugin:react/recommended",
     "prettier",
   ],
   parserOptions: {
@@ -156,5 +157,6 @@ module.exports = {
     "func-style": "error", // アロー関数に強制する。
     "prefer-arrow-functions/prefer-arrow-functions": "error", // アロー関数へ自動修正する。
     "arrow-body-style": "error", // 中括弧を省略できる場合は許容する。
+    "react/react-in-jsx-scope": "off" // import React from 'react' の省略を許容する。
   },
 }
