@@ -33,5 +33,13 @@
     "prettier-plugin-organize-imports": "^3.2.4",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "engines": {
+    "node": "20.x",
+    "npm": "10.x"
+  },
+  "volta": {
+    "node": "20.9.0",
+    "npm": "10.2.4"
   }
 }
