@@ -145,6 +145,12 @@ module.exports = {
         "ignoreStringArrays": true, // 文字列のみ引数なしを許容する。
       }
     ], // .sort() で引数を強制する。
+    "react/jsx-no-bind": [
+      "error",
+      {
+        "allowArrowFunctions": true, // アロー関数のみ許容する。
+      }
+    ], // 無駄なレンダリングが起こり得るコードを禁止する。
     "react-hooks/rules-of-hooks": "error", // Hooks の正しいルールを強制する。
     "react-hooks/exhaustive-deps": "error", // deps を強制する。
     "func-style": "error", // アロー関数に強制する。
