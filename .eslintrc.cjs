@@ -43,6 +43,7 @@ module.exports = {
     "react-hooks",
     "@typescript-eslint",
   ], // 使用するプラグイン。
+  reportUnusedDisableDirectives: true, // eslint-disable の不要になったコメントを削除する。
   rules: {
     "react-refresh/only-export-components": [
       "warn",
