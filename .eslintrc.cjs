@@ -18,6 +18,11 @@ module.exports = {
     }, // 使用する追加の言語機能を示すオブジェクト。
     project: ['tsconfig.json'], // TypeScript の型情報にアクセスする。
   },
+  settings: {
+    react: {
+      version: 'detect', // 使用している React バージョンに適した規則を適用する。
+    },
+  },
   ignorePatterns: ['dist', '.eslintrc.cjs', "vite.config.ts"], // ESLint を無視するファイルの配列。
   parser: '@typescript-eslint/parser', // TypeScript を ESLint で解析できるようにする。
   plugins: [
