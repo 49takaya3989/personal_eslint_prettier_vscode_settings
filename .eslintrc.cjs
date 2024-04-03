@@ -184,7 +184,7 @@ module.exports = {
           "index", // 同一ディレクトリ内のindexファイル（例: ./）
           "object", // 動的インポート（例: import log = console.log;）
           "type", // TypeScriptの型定義（例: import type { Foo } from 'foo';）
-        ],
+        ], // import をカテゴリ分けする。
         pathGroups: [
           {
             pattern: "react", // 指定したいパスの文字列。
