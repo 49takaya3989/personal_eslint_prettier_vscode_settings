@@ -1,13 +1,14 @@
 {
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.fixAll.eslint"
-  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always" // ファイル保存時にESLintによる自動修正を実行する。
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ], // ESLintがチェックを行うファイルタイプを指定する。
+  "typescript.tsdk": "node_modules/typescript/lib", // プロジェクトで使用されているTypeScriptのバージョンをVS Codeに指定する。
+  "editor.formatOnSave": true, // ファイル保存時にフォーマットを自動で実行する。
+  "prettier.enable": true // Prettierを有効にする。
 }
