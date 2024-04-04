@@ -13,7 +13,12 @@ module.exports = {
     "plugin:react/recommended",
     "prettier",
   ],
-  ignorePatterns: [".eslintrc.cjs", "dist", "vite.config.ts"], // ESLint を無視するファイルの配列。
+  ignorePatterns: [
+    ".eslintrc.cjs",
+    "commitlint.config.js",
+    "dist",
+    "vite.config.ts",
+  ], // ESLint を無視するファイルの配列。
   parser: "@typescript-eslint/parser", // TypeScript を ESLint で解析できるようにする。
   parserOptions: {
     ecmaFeatures: {
