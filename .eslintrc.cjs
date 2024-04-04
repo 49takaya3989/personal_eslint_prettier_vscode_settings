@@ -1,5 +1,4 @@
 module.exports = {
-  root: true,
   env: {
     // 指定した環境のグローバル変数を使用できるようにする。
     browser: true,
@@ -8,42 +7,33 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:import/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
+    "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:react/recommended",
     "prettier",
   ],
+  ignorePatterns: [".eslintrc.cjs", "dist", "vite.config.ts"], // ESLint を無視するファイルの配列。
+  parser: "@typescript-eslint/parser", // TypeScript を ESLint で解析できるようにする。
   parserOptions: {
-    sourceType: "module", // モジュールとしてコードを解析
     ecmaFeatures: {
       jsx: true,
     }, // 使用する追加の言語機能を示すオブジェクト。
     project: ["tsconfig.json"], // TypeScript の型情報にアクセスする。
+    sourceType: "module", // モジュールとしてコードを解析
   },
-  settings: {
-    react: {
-      version: "detect", // 使用している React バージョンに適した規則を適用する。
-    },
-    "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true,
-      },
-    },
-  },
-  ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.ts"], // ESLint を無視するファイルの配列。
-  parser: "@typescript-eslint/parser", // TypeScript を ESLint で解析できるようにする。
   plugins: [
-    "import",
+    "@typescript-eslint",
     "functional",
+    "import",
     "prefer-arrow-functions",
     "react",
-    "unicorn",
-    "react-refresh",
     "react-hooks",
-    "@typescript-eslint",
+    "react-refresh",
+    "unicorn",
   ], // 使用するプラグイン。
   reportUnusedDisableDirectives: true, // eslint-disable の不要になったコメントを削除する。
+  root: true,
   rules: {
     /* Code quality and best practices */
     "arrow-body-style": "error", // 中括弧を省略できる場合は許容する。
@@ -213,5 +203,15 @@ module.exports = {
       },
     ],
     "prefer-arrow-functions/prefer-arrow-functions": "error", // アロー関数へ自動修正する。
+  },
+  settings: {
+    react: {
+      version: "detect", // 使用している React バージョンに適した規則を適用する。
+    },
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+      },
+    },
   },
 };
