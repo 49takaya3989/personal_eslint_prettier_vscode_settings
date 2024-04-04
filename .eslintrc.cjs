@@ -188,18 +188,13 @@ module.exports = {
         ], // import をカテゴリ分けする。
         pathGroups: [
           {
-            pattern: "react", // 指定したいパスの文字列。
+            pattern: "{react,react-dom/**,react-router-dom}", // 指定したいパスの文字列。
             group: "external", // pattern で指定した対象の属するグループを指定する。
             position: "before", // import する位置を group で指定した対象の相対位置で指定する。
           },
           {
-            pattern: "react-dom/**",
-            group: "external",
-            position: "before",
-          },
-          {
-            pattern: "react-router-dom",
-            group: "external",
+            pattern: "~/*",
+            group: "internal",
             position: "before",
           },
         ], // path ごとにグループ化する。
