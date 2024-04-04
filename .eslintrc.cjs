@@ -45,58 +45,11 @@ module.exports = {
   ], // 使用するプラグイン。
   reportUnusedDisableDirectives: true, // eslint-disable の不要になったコメントを削除する。
   rules: {
-    "react-refresh/only-export-components": [
-      "warn",
-      { allowConstantExport: true },
-    ],
-    "@typescript-eslint/no-non-null-assertion": "error", // 非 null アサーション演算子 ! の利用を禁止する。
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        selector: ["interface", "typeAlias"],
-        format: ["PascalCase"],
-        custom: {
-          regex: "^I[A-Z]",
-          match: false,
-        },
-      }, // type や interface の変数名を PascalCase に強制する。
-    ],
-    "@typescript-eslint/strict-boolean-expressions": [
-      "error",
-      {
-        allowString: false, // 文字列を許容しない
-        allowNumber: false, // 数値を許容しない
-        allowNullableObject: false, // null許容オブジェクトを許容しない
-        allowNullableBoolean: false, // nullまたはundefinedが許容されるbooleanを許容する
-        allowNullableString: false, // nullまたはundefinedが許容される文字列を許容しない
-        allowNullableNumber: false, // nullまたはundefinedが許容される数値を許容しない
-        allowAny: false, // any型を許容しない
-      }, // boolean 型以外の型を条件式に使用することを禁止する。
-    ],
-    "react/jsx-no-leaked-render": [
-      "error",
-      { validStrategies: ["ternary"] }, // JSX での条件式を三項式に強制する。
-    ],
+    /* Code quality and best practices */
+    "arrow-body-style": "error", // 中括弧を省略できる場合は許容する。
+    "func-style": "error", // アロー関数に強制する。
     "no-implicit-coercion": "error", // 型変換の短い表記法を禁止する。
     "prefer-template": "error", // 文字列の結合で"+"の使用を禁止する。
-    "@typescript-eslint/restrict-plus-operands": [
-      "error",
-      {
-        allowAny: false,
-        allowBoolean: false,
-        allowNullish: false,
-        allowNumberAndString: false,
-        allowRegExp: false,
-        skipCompoundAssignments: false,
-      }, // 異なる型の加算を禁止する。
-    ],
-    "@typescript-eslint/switch-exhaustiveness-check": [
-      "error",
-      {
-        allowDefaultCaseForExhaustiveSwitch: true, // 全てのケースが網羅されている switch 文で default ケースを許容する。
-        requireDefaultForNonUnion: true, // ユニオン型でない値の switch 文で default ケースを強制する。
-      },
-    ],
     "unicorn/prefer-switch": [
       "error",
       {
@@ -104,28 +57,8 @@ module.exports = {
         emptyDefaultCase: "do-nothing-comment", // else がない if 文から整形する際に default を出力する
       },
     ], // if-else より switch を優先する設定。
-    "no-restricted-globals": [
-      "error",
-      {
-        name: "event",
-        message:
-          "Use local parameter instead. Global 'event' object can lead to unintended behavior.",
-      },
-      {
-        name: "isNaN",
-        message: "Use Number.isNaN instead to avoid type coercion.",
-      },
-      {
-        name: "isFinite",
-        message: "Use Number.isFinite instead to avoid type coercion.",
-      },
-    ], // グローバル変数の使用を制限する。
-    "functional/no-let": [
-      "error",
-      {
-        allowInForLoopInit: true, // for 文の引数で let の使用を許容する。
-      },
-    ], // let の使用を禁止する。
+
+    /* Functional programming rules */
     "functional/immutable-data": [
       "error",
       {
@@ -137,41 +70,14 @@ module.exports = {
         ],
       },
     ], // 既存の配列とオブジェクトの変更を禁止する。
-    "@typescript-eslint/method-signature-style": "error", // メソッドシグネチャを禁止する。
-    "@typescript-eslint/consistent-type-imports": [
+    "functional/no-let": [
       "error",
-      {
-        prefer: "type-imports", // type の import では {type 〇〇} を強制する。
-        disallowTypeAnnotations: false, // 型注釈での import を禁止する。
-        fixStyle: "inline-type-imports", // type を inline にする。
-      },
-    ], // import する型に type をつけることを強制する。
-    "@typescript-eslint/consistent-type-exports": [
-      "error",
-      {
-        fixMixedExportsWithInlineTypeSpecifier: true, // type の export で inline を許容する。
-      },
-    ], // type の export で "type" の記載を強制する。
-    "@typescript-eslint/require-array-sort-compare": [
-      "error",
-      {
-        ignoreStringArrays: true, // 文字列のみ引数なしを許容する。
-      },
-    ], // .sort() で引数を強制する。
-    "react/jsx-no-bind": [
-      "error",
-      {
-        allowArrowFunctions: true, // アロー関数のみ許容する。
-      },
-    ], // 無駄なレンダリングが起こり得るコードを禁止する。
-    "react-hooks/rules-of-hooks": "error", // Hooks の正しいルールを強制する。
-    "react-hooks/exhaustive-deps": "error", // deps を強制する。
-    "func-style": "error", // アロー関数に強制する。
-    "prefer-arrow-functions/prefer-arrow-functions": "error", // アロー関数へ自動修正する。
-    "arrow-body-style": "error", // 中括弧を省略できる場合は許容する。
-    "react/react-in-jsx-scope": "off", // import React from 'react' の省略を許容する。
-    "import/no-cycle": "error", // 循環 import を禁止する。
+      { allowInForLoopInit: true }, // for 文の引数で let の使用を許容する。
+    ], // let の使用を禁止する。
+
+    /* Import rules */
     "import/newline-after-import": "error", // import ブロックの後に1行改行を強制する。
+    "import/no-cycle": "error", // 循環 import を禁止する。
     "import/no-useless-path-segments": "error", // import で不要なパスを禁止する。
     "import/order": [
       "error",
@@ -206,5 +112,106 @@ module.exports = {
         "newlines-between": "always", // group 間の改行を強制する。
       },
     ],
+
+    /* Misc rules */
+    "no-restricted-globals": [
+      "error",
+      {
+        name: "event",
+        message:
+          "Use local parameter instead. Global 'event' object can lead to unintended behavior.",
+      },
+      {
+        name: "isNaN",
+        message: "Use Number.isNaN instead to avoid type coercion.",
+      },
+      {
+        name: "isFinite",
+        message: "Use Number.isFinite instead to avoid type coercion.",
+      },
+    ], // グローバル変数の使用を制限する。
+
+    /* React specific rules */
+    "react-hooks/exhaustive-deps": "error", // deps を強制する。
+    "react-hooks/rules-of-hooks": "error", // Hooks の正しいルールを強制する。
+    "react/jsx-no-bind": [
+      "error",
+      { allowArrowFunctions: true }, // アロー関数のみ許容する。
+    ], // 無駄なレンダリングが起こり得るコードを禁止する。
+    "react/jsx-no-leaked-render": [
+      "error",
+      { validStrategies: ["ternary"] }, // JSX での条件式を三項式に強制する。
+    ],
+    "react/react-in-jsx-scope": "off", // import React from 'react' の省略を許容する。
+    "react-refresh/only-export-components": [
+      "warn",
+      { allowConstantExport: true },
+    ],
+
+    /* TypeScript specific rules */
+    "@typescript-eslint/consistent-type-exports": [
+      "error",
+      {
+        fixMixedExportsWithInlineTypeSpecifier: true, // type の export で inline を許容する。
+      },
+    ], // type の export で "type" の記載を強制する。
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        prefer: "type-imports", // type の import では {type 〇〇} を強制する。
+        disallowTypeAnnotations: false, // 型注釈での import を禁止する。
+        fixStyle: "inline-type-imports", // type を inline にする。
+      },
+    ], // import する型に type をつけることを強制する。
+    "@typescript-eslint/method-signature-style": "error", // メソッドシグネチャを禁止する。
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        selector: ["interface", "typeAlias"],
+        format: ["PascalCase"],
+        custom: {
+          regex: "^I[A-Z]",
+          match: false,
+        },
+      }, // type や interface の変数名を PascalCase に強制する。
+    ],
+    "@typescript-eslint/no-non-null-assertion": "error", // 非 null アサーション演算子 ! の利用を禁止する。
+    "@typescript-eslint/require-array-sort-compare": [
+      "error",
+      {
+        ignoreStringArrays: true, // 文字列のみ引数なしを許容する。
+      },
+    ], // .sort() で引数を強制する。
+    "@typescript-eslint/restrict-plus-operands": [
+      "error",
+      {
+        allowAny: false,
+        allowBoolean: false,
+        allowNullish: false,
+        allowNumberAndString: false,
+        allowRegExp: false,
+        skipCompoundAssignments: false,
+      }, // 異なる型の加算を禁止する。
+    ],
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        allowString: false, // 文字列を許容しない
+        allowNumber: false, // 数値を許容しない
+        allowNullableObject: false, // null許容オブジェクトを許容しない
+        allowNullableBoolean: false, // nullまたはundefinedが許容されるbooleanを許容する
+        allowNullableString: false, // nullまたはundefinedが許容される文字列を許容しない
+        allowNullableNumber: false, // nullまたはundefinedが許容される数値を許容しない
+        allowAny: false, // any型を許容しない
+      }, // boolean 型以外の型を条件式に使用することを禁止する。
+    ],
+    "@typescript-eslint/switch-exhaustiveness-check": [
+      "error",
+      {
+        allowDefaultCaseForExhaustiveSwitch: true, // 全てのケースが網羅されている switch 文で default ケースを許容する。
+        requireDefaultForNonUnion: true, // ユニオン型でない値の switch 文で default ケースを強制する。
+      },
+    ],
+    "prefer-arrow-functions/prefer-arrow-functions": "error", // アロー関数へ自動修正する。
   },
 };
