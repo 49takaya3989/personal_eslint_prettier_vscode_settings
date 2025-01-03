@@ -63,6 +63,8 @@ module.exports = {
         ignoreAccessorPattern: [
           "**.current.**", // ref の変更は許容する。
           "**.scrollTop", // scrollTop の変更は許容する。
+          "**.displayName", // memo 化する際に使用
+          "**.debugLabel", // jotai の識別をするために使用
         ],
       },
     ], // 既存の配列とオブジェクトの変更を禁止する。
